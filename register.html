@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4; 
+        }
+
+        .header {
+            background-color: #800020; 
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999; 
+        }
+
+        .header h1 {
+            color: #fff; /* Text color for the header */
+            margin: 0; /* Remove margin to prevent spacing */
+        }
+
+        .form-container {
+            background-color: #fff; /* White background for the form */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect for the form */
+            width: 300px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #333; /* Text color for the form heading */
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Text color for labels */
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc; /* Border color for input fields */
+            border-radius: 3px;
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #bb133d; /* Button color */
+            color: #fff; /* Button text color */
+        }
+
+        .button:hover {
+            background-color: #0056b3; /* Button color on hover */
+        }
+        .form-container h2{
+            color:#800020;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>NOTES APPLICATION</h1>
+    </div>
+
+    <div class="form-container" id="registrationForm">
+        <h2>Register</h2>
+
+        <div class="input-group">
+            <label for="regUsername">Username:</label>
+            <input type="text" id="regUsername" name="regUsername" required>
+        </div>
+
+        <div class="input-group">
+            <label for="regEmail">Email:</label>
+            <input type="email" id="regEmail" name="regEmail" required>
+        </div>
+
+        <div class="input-group">
+            <label for="regPassword">Password:</label>
+            <input type="password" id="regPassword" name="regPassword" required>
+        </div>
+
+        <button class="button register-button" onclick="register()">Register</button>
+    </div>
+
+    <script>
+        function register() {
+            var regUsername = document.getElementById("regUsername").value;
+            var regEmail = document.getElementById("regEmail").value;
+            var regPassword = document.getElementById("regPassword").value;
+
+            var userData = {
+                username: regUsername,
+                email: regEmail,
+                password: regPassword
+            };
+
+            localStorage.setItem("userData", JSON.stringify(userData));
+
+            alert("Registration successful!");
+            window.location.href = "login.html";
+        }
+    </script>
+
+</body>
+</html>
